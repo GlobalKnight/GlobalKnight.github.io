@@ -2967,9 +2967,9 @@ input, select, textarea {
 					content: '';
 					display: block;
 					position: absolute;
-					top: 50%;
+					top: 10%;
 					width: calc(50% - 6rem);
-					border-top: solid 2px;
+					border-top: solid 1px;
 				}
 
 				header.major > .date:before {
@@ -3396,7 +3396,9 @@ input, select, textarea {
 			margin-top: -0.25rem;
 			text-align: center;
 		}
-
+		#wrapper > #header {
+			margin-top: -15rem;
+		}
 		#intro + #header {
 			margin-top: -20rem;
 		}
