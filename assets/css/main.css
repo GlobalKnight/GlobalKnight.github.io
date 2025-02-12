@@ -3796,6 +3796,11 @@ input, select, textarea {
 
 			#main > .post.featured {
 				text-align: center;
+				text-align: left;
+			}
+
+			h2 + a {
+				margin-top: -0.75rem;
 			}
 
 			@media screen and (max-width: 1280px) {
