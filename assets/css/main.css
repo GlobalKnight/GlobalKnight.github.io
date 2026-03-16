@@ -321,6 +321,13 @@ input, select, textarea {
 		border-bottom-color: #eeeeee;
 	}
 
+	.video-container {
+		display: flex;
+		justify-content: center; /* Centers horizontally */
+		align-items: center; /* Centers vertically (if the container has a defined height) */
+		margin-bottom: 2rem;/* Optional: Set a specific height for vertical centering within a certain area */
+		/* height: 100vh; */
+	}
 /* Row */
 
 	.row {
@@ -2978,6 +2985,10 @@ input, select, textarea {
 				header.major > .date:after {
 					right: 0;
 				}
+				header.major > h2 {
+					margin-top: -2rem;
+					margin-bottom: -2rem;
+				}
 
 		@media screen and (max-width: 980px) {
 
@@ -3795,6 +3806,7 @@ input, select, textarea {
 			}
 
 			#main > .post.featured {
+				padding: 4rem 8rem 0rem 8rem;
 				text-align: center;
 				text-align: left;
 			}
@@ -4692,5 +4704,4 @@ input, select, textarea {
 			box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.2);
 			visibility: visible;
 		}
-
 	}
