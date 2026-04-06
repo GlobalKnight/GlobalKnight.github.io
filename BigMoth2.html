@@ -84,7 +84,8 @@
 							</header>
 							<p>Each leadership role during this project had a mentor to reach out to for questions, and they gave a helping hand to get us started. Our QA (Quality Advocate) mentor provided examples and general ideas on what to include in our weekly unit tests. The basic idea of ensuring everything worked as intended was the ratings: Failed, Partial, Passed. The way to use the spreadsheet was simple, so other members would easily be able to mark it as just a checklist. I would fill it out by playing through the game, thinking like a player at first and then trying to see how fast I could break new features by hand. I would also fill out our weekly build notes in tandem with the sheet to log any outstanding features for our project leads and directors.</p>
 							<div class="image main"><img src="images/MothGame/QA/WeeklyBuildEx.png" alt="" /></div>
-							<p>There's a lot I learned from hindsight alone. One mistake I made was not creating a more precise workflow for my teammates to use to help fill out the weekly builds checklist. I had help with bigger milestones, but for each other standard week, it was usually just me filling things out at the last moment due to other classes and projects. If I had created the checklists earlier, the team would be able to use them. Reasons for the checklist being filled late were usually that people needed more time to add something new, and it would end up being the same build as before if not. The biggest problem I experienced as QA, which was also a mistake to acknowledge, was that there were some parts I couldn't test properly since they weren't my field at all in terms of what our project directors would be grading on. </p>
+							<p>There's a lot I learned from hindsight alone. One mistake I made was not creating a more precise workflow for my teammates to use to help fill out the weekly builds checklist. I had help with bigger milestones, but for each other standard week, it was usually just me filling things out at the last moment due to other classes and projects. If I had created the checklists earlier, the team would be able to use them. Reasons for the checklist being filled late were usually that people needed more time to add something new, and it would end up being the same build as before if not. The biggest problem I experienced as QA, which was also a mistake to acknowledge, was that there were some parts I couldn't test properly since they weren't my field at all in terms of what our project directors would be grading on.</p>
+							<p>Specifically, the audio and art perspectives were parts I couldn't test as well or with their experienced perspective; so, I only had the view of a new player for those aspects. One person from each discipline is the best solution for what we were going through. It would have been a great way for my other members to understand how it was interacting with other elements of the game and help keep us all more connected to the game’s original vision.</p>
 						</section>
 						<section class="post">
 							<header>
@@ -93,52 +94,55 @@
 						</section>
 						<section class="post">
 							<header>
+								<h2>Moth Data Tables</h2>
+							</header>
+							<p>Using Unreal’s Data Table system, I went through a couple of iterations of what to include and set it up to work similarly to a C++ std::map. With the data table, designers or I would be able to change variables similarly to a spreadsheet, and the code using it would be able to handle whatever the variables were changed to. This allowed us to change thumbnails, moth models, names, attach companion effects, and modify durations in places like the Incubator, all in one place.</p>
+							<div class="image main"><img src="images/MothGame/DataTableInEngineStruct.png" alt="" /></div>
+							<p>For the Moth Manager, it was necessary to create a simplified version of the data table because there wasn't a way to swap out the row struct after it was created, so it felt like the best option at the time. I made this struct in the same file as the Moth Manager, which made it easier to use with Unreal's C++.</p>
+							<div class="image main"><img src="images/MothGame/DataTableVSCStruct.png" alt="" /></div>
+						</section>
+						<section class="post">
+							<header>
+								<h2>Moth Manager</h2>
+								<p></p>
+							</header>
+							<p>The Moth Manager was intended to manage a much more complex idea than it ended up as. In early development, I had gotten it to manage the mechanics of moth lives essentially. All moths in the world, as soon as they are created, would have a unique ID, and their lives would be on a timer. After the timer expired, they would be destroyed wherever they were, whether in containers within the shop, the incubator, or even the player's inventory. This was a pretty convoluted idea and didn't have enough time to be polished for the end, so it was reworked and became only a way to create/destroy moths and give them a unique ID. The unique ID was vital, since we had to compare moths, and the inventories included a sorting feature; it was the simplest way to make sure it could identify that it was comparing against itself.</p>
+						</section>
+						<section class="post">
+							<header>
 								<h2>Companion Moths</h2>
 								<p>Utility via Moth powers</p>
 								<div class="image main"><img src="videos/GIFs/CompanionMoth_Equip.gif" alt="" /></div>
 							</header>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
+							<p>The concept of the companion moths in the game quickly became a big favorite among the team and anyone who saw them in action. The idea stemmed from using them as a general idea of progression and game manipulation. Specifically, their abilities that could give incredible jumping power or speedier movement gave players a greater sense of control and immersion in the world they were experiencing. The power the moths shared came directly from the quality of it, so a quality of 100, the max that can be attained through breeding, was the most extreme experience players would get from a moth. To put it in perspective, slightly easier if a Bounce Moth of a quality of 10 would increase the player’s jump power by 10 percent, and then a quality of 100 would increase it by 100%. It created unique ways to play the game – even stacking if two moths of the same kind are equipped.</p>
+							<div class="image main"><img src="images/MothGame/CompanionMoths/AngelEx_ForestAngel.png"></div>
+							<p>Using the Moth Data Tables and Moth Manager, the moths were much easier to manipulate -- ensuring they would work correctly. Since this was one of the bigger features I was leading in, I designed the backend classes and systems that allowed companions to be changed in menus as well as the general design of the parent to child class relationship that let my teammate and me create the first iteration of all 9 moths' within a month.</p>
 						</section>
 						<section class="post">
 							<header>
-								<h2>Companion Moths</h2>
-								<p>Utility via Moth powers</p>
-								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
+								<h2>Moth Incubator</h2>
+								<p></p>
+								<div class="image main"><img src="videos/GIFs/IncubatorEx_Short.gif" alt="" /></div>
 							</header>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
+							<p>The Breeding Tank had originally been planned to contain the entire birth and initial life cycle of the moth. From the moth's breeding to eggs hatching, caterpillars growing and forming cocoons, and finally a fully grown moth once their time in the cocoon was up. I created an Unreal object that would be fully contained within itself to update and progress to the next stage when the conditions were met. Each stage would have its own constraint on whether they could continue progressing, like food for caterpillars, for instance, which was easy to implement since they updated individually. This also involved a food system where we would define a food object and give it an energy amount or the time it takes to be consumed. So every caterpillar in the tank was able to take part in a whole apple.</p>
+							<p>The features altogether became too much for our team to handle since new ideas were coming up and were overwriting previous ideas too fast, and the content inevitably was cut. So, in the end, these moths became mammals, and only the breeding stage was kept.</p>
 						</section>
 						<section class="post">
 							<header>
-								<h2>Companion Moths</h2>
-								<p>Utility via Moth powers</p>
-								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
+								<h2>Moth Frame</h2>
+								<div class="image main"><img src="images/MothGame/MothFrame.png" alt="" /></div>
 							</header>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
+							<p>The Moth Frame was quicker to implement, considering the difficulty of the other features. In a week, I was able to roughly implement the Moth Frame effects for each moth and place the code required in any features they would be affecting. The Moth Frame, in essence, was a container to create modifiers for gameplay, including breeding time, money earned, bonus money when a moth is caught, and even money over time based on how many moths you have.</p>
+							<p>The most difficult one was the last one with money based on moths you had. It required adjusting variables within the moth manager and establishing a difference between a caught moth and a wild moth, and being able to remove moths from that list without it breaking, and there being stragglers in code when they were switched out.</p>
 						</section>
 						<section class="post">
 							<header>
-								<h2>Companion Moths</h2>
-								<p>Utility via Moth powers</p>
-								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
+								<h2>Modifications for Upgrades</h2>
 							</header>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
+							<p>The modifications to handle the upgrade system in the market were mostly handled as unlocks for additional inventory slots. The upgrades for companion moths were unlocking the ability itself and then purchasing their extra slot for a max of two companions at once. The upgrade for Breeding Tanks worked similarly and was implemented to reveal extra Breeding Tanks in the player's moth house. Finally, the Moth Frame upgrade was the ability to get more slots, so the player could also have additional bonuses at a time, with a max of 9 slots. Both the Companion Moth and Moth Frame upgrades worked by increasing the inventory component size of the inventory slots used to hold moths, making it so that the upgrades could be iterated easily to manage adding either another companion moth or even more Moth Frame Slots.</p>
 						</section>
-						<section class="post">
-							<header>
-								<h2>Companion Moths</h2>
-								<p>Utility via Moth powers</p>
-								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
-							</header>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
-						</section>
-						
 						<!-- Take Aways -->
-						<section class="post">
+						<!-- <section class="post">
 							<header>
 								<h2>Important Take Aways</h2>
 								<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
@@ -148,10 +152,10 @@
 							<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
 							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
-						</section>
+						</section> -->
 
 						<!-- Conclusion -->
-						<section class="post">
+						<!-- <section class="post">
 							<header>
 								<h2>In Conclusion Or Final Thoughts</h2>
 								<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
@@ -161,7 +165,7 @@
 							<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
 							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
-						</section>
+						</section> -->
 
 					</div>
 
