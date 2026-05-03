@@ -155,6 +155,7 @@ input, select, textarea {
 	}
 
 	body, input, select, textarea {
+		-webkit-text-fill-color: #f5f5f5;
 		font-family: "Merriweather", Georgia, serif;
 		font-weight: 300;
 		font-size: 1rem;
@@ -3634,7 +3635,7 @@ input, select, textarea {
 		-webkit-transition: -webkit-transform 1s ease, opacity 1s ease;
 		-ms-transition: -ms-transform 1s ease, opacity 1s ease;
 		transition: transform 1s ease, opacity 1s ease;
-		background: rgb(58, 52, 52);
+		background: rgb(69, 13, 133);
 		height: 4rem;
 		line-height: 4rem;
 		margin: -4rem auto 0 auto;
@@ -3754,7 +3755,7 @@ input, select, textarea {
 					}
 
 				#nav ul.links li.active {
-					background-color: #ffffff;
+					background-color: #28222c;
 				}
 
 					#nav ul.links li.active a {
@@ -3788,7 +3789,7 @@ input, select, textarea {
 /* Main */
 
 	#main {
-		background-color: #ffffff;
+		background-color: #1e1717;;
 		position: relative;
 		margin: 0 auto;
 		width: calc(100% - 4rem);
@@ -3798,7 +3799,7 @@ input, select, textarea {
 
 		#main > * {
 			padding: 4rem 4rem 2rem 4rem ;
-			border-top: solid 2px #eeeeee;
+			border-top: solid 2px #1e1717;
 			margin: 0;
 		}
 
@@ -3818,8 +3819,15 @@ input, select, textarea {
 				margin-top: -2rem;
 			}
 
-			#main > .post header.major > h1, #main > .post header.major h2 {
-				font-size: 1.5rem;
+			#main > .post header.major > h1 {
+				font-size: 2.5rem;
+				line-height: 1.1;
+				margin: 0 0 2rem 0;
+				font-weight: 600;
+			}
+
+			#main > .post header.major h2 {
+				font-size: 1.8rem;
 				line-height: 1.1;
 				margin: 0 0 2rem 0;
 				font-weight: 600;
@@ -3838,7 +3846,7 @@ input, select, textarea {
 			@media screen and (max-width: 1280px) {
 
 				#main > .post {
-					padding: 6rem 4rem 4rem 4rem ;
+					padding: 0rem 4rem 3rem 4rem ;
 				}
 
 			}
@@ -3992,7 +4000,7 @@ input, select, textarea {
 		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
-		background-color: #f5f5f5;
+		background-color: #1e1717;
 		color: #909498;
 		cursor: default;
 		position: relative;
