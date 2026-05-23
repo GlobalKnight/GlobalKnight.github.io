@@ -10,6 +10,8 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/Slideshow.css" />
+		<link rel="stylesheet" href="highlight/styles/tomorrow-night-bright.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -27,95 +29,124 @@
 						<ul class="links">
 							<li><a href="MainPage.html">Home</a></li>
 							<li><a href="Me.html">Me</a></li>
-							<!-- <li><a href="MyWorks.html">My Works</a></li> -->
-							<!-- <li><a href="elements.html">Elements Reference</a></li> -->
+							<!-- <li><a href="MyWorks.html">My Works</a></li>
+							<li><a href="elements.html">Elements Reference</a></li> -->
 						</ul>
 						<ul class="icons">
-							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="www.linkedin.com/in/michael-howard562" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
 						</ul>
 					</nav>
 
 				<!-- Main -->
 					<div id="main">
+						<section class="post">
+							<header>
+								<span class="date">Spring 2023</span>
+								<h1>2D Combat Prototype</h1>
+							</header>
+							<!-- <div class="image main"><img src="images/pic01.jpg" alt="" /></div> -->
+							<!-- <div class="video-container">
+								<video width="840" controls poster="images/AntiViral/AntiViralThumbnail.png">
+									<source src="videos/AntiViral/GAM150_AntiViral.mp4" type="video/mp4">
+									Your browser does not support the video tag.
+								</video>
+							</div> -->
 
-						<!-- Post -->
-							<!-- <section class="post">
-								<header class="major">
-									<span class="date">Fall 2024 - Spring 2025</span>
-									<h1>Big Moth 2</h1>
-									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-									facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-									amet nullam sed etiam veroeros.</p>
-								</header>
-								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
-								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
-							</section> -->
+							<!-- <header>
+								<h2>Introduction</h2>
+							</header> -->
+							<p>I started this Unity project to see how far I could get into a megalovania-style game over the course of a summer. I was going through the first Castlevania game at the time and used it as a reference on how to progress, but I wanted to incorporate combo attacks into its move set and build upon that. The point I got to in the project was enough to make animations for two-step combos alternating between the uses of light and heavy attacks, but with room for iteration. I also made a burst fire attack and a fire stream attack to create a potential magic system later.</p>
+						</section>
 
+						<!-- Role Specific Details -->
+						<section class="post">
+							<header>
+								<h2>Animation</h2>
+							</header>
+							<p>I took the last few weeks of a summer to work on this project and was able to learn more about working with an art pipeline in Unity and how to create animation assets. With even more insight into how to work with Unity's animation graph, I created a graph that managed each of the player's states, including attacking actions, walking, crouching, and jumping. The graph itself became messy as a first experience with it, but I designed it to ensure that each step of the process could be completed and return to its idle state.</p>
+							
+							<!-- slideshow start -->
+							<div class="slideshow-container">
+								<div class="mySlides fade">
+									<div class="numbertext">1 / 8</div>
+									<div class="visual">
+										<img src="images/2D_Retro_Project/Heavy_Heavy-Heavy.gif" style="width:100%" />
+										<a class="prev" onclick="plusSlides(-1, 0)">❮</a>
+										<a class="next" onclick="plusSlides(1, 0)">❯</a>
+									</div>
+								</div>
+								<div class="mySlides fade">
+									<div class="numbertext">2 / 8</div>
+									<div class="visual">
+										<img src="images/2D_Retro_Project/Light-Heavy.gif" style="width:100%" />
+										<a class="prev" onclick="plusSlides(-1, 0)">❮</a>
+										<a class="next" onclick="plusSlides(1, 0)">❯</a>
+									</div>
+								</div>
+								<div class="mySlides fade">
+									<div class="numbertext">3 / 8</div>
+									<div class="visual">
+										<img src="images/2D_Retro_Project/Light-Light.gif" style="width:100%" />
+										<a class="prev" onclick="plusSlides(-1, 0)">❮</a>
+										<a class="next" onclick="plusSlides(1, 0)">❯</a>
+									</div>
+								</div>
+								<div class="mySlides fade">
+									<div class="numbertext">4 / 8</div>
+									<div class="visual">
+										<img src="images/2D_Retro_Project/Parry.gif" style="width:100%" />
+										<a class="prev" onclick="plusSlides(-1, 0)">❮</a>
+										<a class="next" onclick="plusSlides(1, 0)">❯</a>
+									</div>
+								</div>
+								<div class="mySlides fade">
+									<div class="numbertext">5 / 8</div>
+									<div class="visual">
+										<img src="images/2D_Retro_Project/FireStream.gif" style="width:100%" />
+										<a class="prev" onclick="plusSlides(-1, 0)">❮</a>
+										<a class="next" onclick="plusSlides(1, 0)">❯</a>
+									</div>
+								</div>
+								<div class="mySlides fade">
+									<div class="numbertext">6 / 8</div>
+									<div class="visual">
+										<img src="images/2D_Retro_Project/CrouchingAttacks.gif" style="width:100%" />
+										<a class="prev" onclick="plusSlides(-1, 0)">❮</a>
+										<a class="next" onclick="plusSlides(1, 0)">❯</a>
+									</div>
+								</div>
+								<div class="mySlides fade">
+									<div class="numbertext">7 / 8</div>
+									<div class="visual">
+										<img src="images/2D_Retro_Project/Walking.gif" style="width:100%" />
+										<a class="prev" onclick="plusSlides(-1, 0)">❮</a>
+										<a class="next" onclick="plusSlides(1, 0)">❯</a>
+									</div>
+								</div>
+								<div class="mySlides fade">
+									<div class="numbertext">8 / 8</div>
+									<div class="visual">
+										<img src="images/2D_Retro_Project/Jumping.gif" style="width:100%" />
+										<a class="prev" onclick="plusSlides(-1, 0)">❮</a>
+										<a class="next" onclick="plusSlides(1, 0)">❯</a>
+									</div>
+								</div>
+							</div>
+							<!-- slideshow end -->
+
+							<p>I'm not very trained in digital art, and this was my first attempt at making animations, so I worked on a basis of ensuring that the animations could be stylistically choppy and still smooth where it matters to accommodate for that detail, while it's still in a very early development stage as a prototype. I created every asset in Aseprite for sprite sheets and used Unity's tools to cut them into animations for playing.</p>
+						</section>
 							<section class="post">
-								<header>
-									<span class="date">Summer 2024</span>
-									<h1>Combat Animation Prototype</h1>
-									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-									facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-									amet nullam sed etiam veroeros.</p>
-								</header>
-								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
-								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
-							</section>
-
-							<!-- Role Specific Details -->
-							<section class="post">
-								<header>
-									<h2>My Thought Process and Work</h2>
-									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-									facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-									amet nullam sed etiam veroeros.</p>
-								</header>
-								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
-								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
-								
-								<!-- Code Reports -->
-								<header>
-									<h3>Code Snippets/Reports</h3>
-									<p>Details of some of my work and how I approached certain problems</p>
-								</header>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
-
-							</section>
-							<!-- Take Aways -->
-							<section class="post">
-								<header>
-									<h2>Important Take Aways</h2>
-									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-									facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-									amet nullam sed etiam veroeros.</p>
-								</header>
-								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
-								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
-							</section>
-
-							<!-- Conclusion -->
-							<section class="post">
-								<header>
-									<h2>In Conclusion Or Final Thoughts</h2>
-									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-									facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-									amet nullam sed etiam veroeros.</p>
-								</header>
-								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
-								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
-							</section>
-
+							<header>
+								<h2>Gameplay Logic</h2>
+							</header>
+							<p>The logic for this prototype is simple, involving only input controls, gravity settings, and a small tile map to keep the space contained for the project. The input in the player's script for attacks is just checking for the first input, whether a heavy or light, and then all sequential inputs are checked inside the animation graph itself.</p>
+						</section>
 					</div>
 
 				<!-- Footer -->
 					<footer id="footer">
-						<section class="split contact">
+						<!-- <section class="split contact">
 							<section class="alt">
 								<h3>Email</h3>
 								<p><a href="#">info@untitled.tld</a></p>
@@ -126,7 +157,7 @@
 									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
 								</ul>
 							</section>
-						</section>
+						</section> -->
 					</footer>
 
 				<!-- Copyright -->
@@ -137,13 +168,17 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/Slideshow.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		
+		<script src="highlight/highlight.min.js"></script>
+		<script>hljs.highlightAll();</script>
 
 	</body>
 </html>

@@ -1,0 +1,332 @@
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px; /* increased from 1000px */
+  width: calc(100% - 40px); /* keep a small side gutter on narrow viewports */
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 0; /* ensure no inner padding shifts the image */
+  box-sizing: border-box;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  height: 22rem;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f5f5f5;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb75;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #7171717c;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* make prev/next full-height equal-size edge blocks */
+.slideshow-container .prev,
+.slideshow-container .next {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 64px; /* adjust width as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.06);
+  color: #fff;
+  text-decoration: none;
+  z-index: 20;
+  cursor: pointer;
+  transition: background .15s;
+  -webkit-tap-highlight-color: transparent;
+  font-size: 1.6rem;
+}
+
+.slideshow-container .prev { left: 0; border-radius: 0 8px 8px 0; }
+.slideshow-container .next { right: 0; border-radius: 8px 0 0 8px; }
+
+.slideshow-container .prev:hover,
+.slideshow-container .next:hover,
+.slideshow-container .prev:focus,
+.slideshow-container .next:focus {
+  background: rgba(0,0,0,0.22);
+  outline: none;
+}
+
+/* smaller on small screens */
+@media (max-width: 480px) {
+  .slideshow-container .prev,
+  .slideshow-container .next { width: 48px; font-size: 1.2rem; }
+}
+
+/* Normalize prev/next to identical full-height edge panels */
+.prev, .next,
+.slideshow-container .prev, .slideshow-container .next {
+  top: 0 !important;
+  bottom: 0 !important;
+  height: 100% !important;
+  width: 64px !important; /* adjust if you want wider/narrower panels */
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 0 !important; /* remove if you want rounded corners — keep symmetric */
+  box-sizing: border-box !important;
+  background: rgba(0,0,0,0.06) !important;
+  transition: background .15s !important;
+}
+.prev { left: 0 !important; }
+.next { right: 0 !important; }
+
+/* Make prev/next identical full-height edge panels and prevent uneven clipping */
+.slideshow-container {
+  position: relative;
+  overflow: hidden;
+  padding: 0; /* ensure no inner padding shifts the image */
+  box-sizing: border-box;
+}
+
+/* authoritative overrides (placed last) */
+.slideshow-container .prev,
+.slideshow-container .next {
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  height: 100% !important;
+  width: 64px !important; /* adjust if you want wider panels */
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  background: rgba(0,0,0,0.06) !important;
+  z-index: 40 !important;
+  border-radius: 0 !important;
+  cursor: pointer !important;
+  transition: background .15s !important;
+  transform: none !important;
+}
+
+/* explicit left / right */
+.slideshow-container .prev { left: 0 !important; }
+.slideshow-container .next { right: 0 !important; }
+
+/* ensure slides/images fill the container and don't shift under controls */
+.slideshow-container .mySlides,
+.slideshow-container .mySlides img,
+.slideshow-container .mySlides > * {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* optional: subtle edge masks so image under the controls looks consistent */
+.slideshow-container::before,
+.slideshow-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 64px;
+  pointer-events: none;
+  z-index: 35;
+  background: linear-gradient(90deg, rgba(0,0,0,0.06), rgba(0,0,0,0));
+}
+.slideshow-container::after { right: 0; transform: none; }
+.slideshow-container::before { left: 0; transform: none; }
+
+/* controls overlay only the visual area */
+.slideshow-container .visual { position: relative; overflow: visible; }
+
+.slideshow-container .visual .prev,
+.slideshow-container .visual .next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.06);
+  color: #fff;
+  z-index: 40;
+  cursor: pointer;
+  transition: background .15s;
+  border-radius: 0;
+}
+
+.slideshow-container .visual .prev { left: 0; }
+.slideshow-container .visual .next { right: 0; }
+
+.slideshow-container .visual img,
+.slideshow-container .visual pre {
+  display: block;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Darker prev/next panels and matching edge masks */
+.slideshow-container .visual .prev,
+.slideshow-container .visual .next {
+  background: rgba(0, 0, 0, 0.1) !important;
+  color: #fff !important;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+  transition: background .15s ease !important;
+}
+.slideshow-container .visual .prev:hover,
+.slideshow-container .visual .next:hover {
+  background: rgba(0,0,0,0.7) !important;
+}
+
+/* darker edge masks so image under controls reads consistently */
+.slideshow-container::before,
+.slideshow-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 64px;
+  pointer-events: none;
+  z-index: 35;
+}
+.slideshow-container::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.45), rgba(0,0,0,0)) !important;
+}
+.slideshow-container::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(0,0,0,0.45), rgba(0,0,0,0)) !important;
+}
+
+/* Clip masks and controls to the visual area only */
+.slideshow-container .visual {
+  position: relative;
+  overflow: hidden; /* keep masks & controls inside the image/code */
+}
+
+/* disable container-level masks if present */
+.slideshow-container::before,
+.slideshow-container::after {
+  display: none !important;
+}
+
+/* add edge masks inside visual (only cover the visual) */
+.slideshow-container .visual::before,
+.slideshow-container .visual::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 64px;
+  pointer-events: none;
+  z-index: 15;
+}
+.slideshow-container .visual::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.45), rgba(0,0,0,0));
+}
+.slideshow-container .visual::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(0,0,0,0.45), rgba(0,0,0,0));
+}
+
+/* ensure controls sit only over the visual */
+.slideshow-container .visual .prev,
+.slideshow-container .visual .next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  background: transparent;
+  color: #fff;
+}
+
+/* remove default margins so edges align perfectly */
+.slideshow-container .visual img,
+.slideshow-container .visual pre {
+  display: block;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width:480px){
+  .slideshow-container .visual .prev,
+  .slideshow-container .visual .next { width:48px; }
+}

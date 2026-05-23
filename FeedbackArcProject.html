@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic Page - Massively by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/Slideshow.css" />
+		<link rel="stylesheet" href="highlight/styles/tomorrow-night-bright.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="MainPage.html" class="logo">Massively</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="MainPage.html">Home</a></li>
+							<li><a href="Me.html">Me</a></li>
+							<!-- <li><a href="MyWorks.html">My Works</a></li>
+							<li><a href="elements.html">Elements Reference</a></li> -->
+						</ul>
+						<ul class="icons">
+							<li><a href="www.linkedin.com/in/michael-howard562" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						</ul>
+					</nav>
+					
+					<!-- Main -->
+					<div id="main">
+						<section class="post">
+							<header>
+								<span class="date">Fall 2025</span>
+								<h1>Feedback Arc Prototype</h1>
+							</header>
+							<img src="images/FeedbackProj/Gifs/Finale.gif" style="width:100%" />
+							<!-- <div class="video-container"> just in case
+								<video width="840" controls poster="images">
+									<source src="videos/AntiViral/GAM150_AntiViral.mp4" type="video/mp4">
+									Your browser does not support the video tag.
+								</video>
+							</div> -->
+
+							<!-- <header>
+								<h2>Introduction</h2>
+							</header> -->
+							<p>The purpose of this project was to create a simple combat loop prototype intertwined with a fully designed feedback arc to create a visceral user experience for a player. Considering examples of feedback found in Devil May Cry, I focused on recreating combat UX and feedback that felt satisfying and engaging. The purpose is to ensure that everything that happens throughout the combat demo project is eased into and doesn't come off harshly to users. The focus of the feedback arc that I designed relies heavily on the stages of the style meter, which progresses the more active you are in combat. It largely includes hits generating points into the meter, and moments of inactivity begin to reduce those points. This has an intertwined correlation to the amount of feedback the player is actively experiencing.</p>
+						</section>
+						<!-- Feedback arc implementation -->
+						<section class="post">
+							<header>
+								<h2 style="text-align: center;">Design of the Feedback Arc</h2>
+							</header>
+						</section>
+						<section class="post">
+							<header>
+								<h2>Set Up</h2>
+							</header>
+							<p>Creating an introduction that brings the player into the arc smoothly. This involves text fading in for controls, and the practice dummy taunting to draw attention to get the player to initiate. As soon as action is taken on the dummy, several forms of feedback begin, including: </p>
+							<ul style="border-left-width: 4rem;border-left-style: solid;">
+								<li>Taunt changing to a hit reaction</li>
+								<li>Style Meter introduction animation</li>
+								<li>Basic Hit sparks and sound effects</li>
+								<li>Slight Style Meter shake on hit</li>
+							</ul>
+						</section>
+						<section class="post">
+							<header>
+								<h2>Development and Development Spikes</h2>
+							</header>
+							<p>As more actions are taken, these elements of feedback escalate and become much more prominent, creating double hit effects to triple hit effects toward the end of the development at its peak. These hits act exactly like those of the initial contact but serve as extra damage and extra flare. An electric effect surrounding the meter grows as the score accumulates towards its maximum, shaking with each hit and growing with a slamming lerp effect for extra visual haptic feedback. The screen shakes for given attacks at further stages to make the hits feel stronger – giving the attacks weight.</p>
+							<ul style="border-left-width: 4rem;border-left-style: solid;">
+								<li>Style meter point generation</li>
+								<li>Style meter shake (increasing velocity based on current stage)</li>
+								<li>Changing VFX per stage based on the applied damage</li>
+								<li>SFX and background audio get louder/heavier as the arc progresses.</li>
+								<li>Camera shake and dynamic movement including zooming effects for charged attacks.</li>
+								<li>Special animations before new spikes.</li>
+							</ul>
+						</section>
+						<section class="post">
+							<header>
+								<h2>Resolution</h2>
+							</header>
+							<p>The resolution of feedback is simply the easing of all the feedback down and adding additional parts. This included fading out the defeated dummy and hiding the active style meter. Preventing the end of the fight from ending too suddenly and still allowing small bits of feedback to enter to ease the players back out of engagement.</p>
+						</section>
+						<header>
+								<h2 style="text-align: center;">Technical Implementation</h2>
+						</header>
+						<section class="post">
+							<header>
+								<h2>Action List</h2>
+							</header>
+							<p>Most feedback was implemented with an action list I created that allowed for individual and precise control of elements of UI and game objects. This includes shaking, moving, rotating, and fading, which I made to be applied to anything considered a unity game object. This allowed for clean control over actions happening at once and priority, as well as ensuring a strict order of operations.</p>
+						</section>
+						<section class="post">
+							<header>
+								<h2>Camera</h2>
+							</header>
+							<p>Using Unity's Cinemachine package for the dynamic camera, I was able to apply focus to the player and create a unique action for it. Using Cinemachine functions, I made an action that was able to zoom in and out easily for attacks that had a build-up to full power.</p>
+						</section>
+						<section class="post">
+							<header>
+								<h2>Combo System/Attack Queuing</h2>
+							</header>
+							<p>My design for combos was focused on delayed inputs as the main key to different variations of attacks. I used Unity's scriptable objects to contain each attack's input window, animation, and potential next attacks allowed almost in a linked fashion. I designed a queue that would not accept items that have already been put into the list, and it only allowed anything in the actions path. This uses an active attack in a loop and pops everything once the combo is complete; animation timings were vital in dynamically recognizing when combat actions would be complete.</p>
+						</section>
+						<header>
+							<h2 style="text-align: center;">Data Gathering</h2>
+						</header>
+						<section class="post">
+							<header>
+								<h2>Telemetry</h2>
+							</header>
+							<p>Gathering telemetry data for an arc of visual feedback and engagement is done by reducing each element that the player sees into a number that accurately relates to how much is happening on screen. This can determine how overwhelming specific stages of the arc potentially are and whether or not there is a clear increase in the user's engagement through feedback. These telemetry identifiers became: </p>
+							<ul style="border-left-width: 4rem;border-left-style: solid;">
+								<li>Number of hits</li>
+								<li>Current Style Meter Stage</li>
+								<li>Amount of screen shake</li>
+								<li>Amount of VFX on screen</li>
+								<li>Audio volume</li>
+							</ul>
+						</section>
+						<section class="post">
+							<header>
+								<h2>Analysis</h2>
+							</header>
+							<p>Through the analysis of multiple runs of telemetry data, I found that over time, engagement resets frequently to zero. I believed this could mean the lack of inclusion of the player's animation attack start, or the need for potential modification to the telemetry system. If I had engagement slowly die down, similar to the style meter, it could also be a good way to reflect the amount of feedback processed. Additionally, during the peak of the arc, so much is happening that the amount on screen is 10 times the amount of what happens during the rising development phase. This is mostly intentional to imagine an intense finale for the arc and shock the user with what can happen at its maximum potential. Shake is also the most prominent action taken throughout the project's runtime, which is due to the rumble of the style meter, most likely, and it's a subtle effect, so its points per trigger are much smaller than the others.</p>
+							<img src="images/FeedbackProj/TelemetryGraph.png" style="width:100%" />
+						</section>
+					</div>				
+				<!-- Footer -->
+					<footer id="footer">
+						<!-- <section class="split contact">
+							<section class="alt">
+								<h3>Email</h3>
+								<p><a href="#">info@untitled.tld</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+								</ul>
+							</section>
+						</section> -->
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Michael Howard</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/Slideshow.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		
+		<script src="highlight/highlight.min.js"></script>
+		<script>hljs.highlightAll();</script>
+
+	</body>
+</html>
