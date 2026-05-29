@@ -50,19 +50,22 @@
 							</header>
 							<!-- <div class="image main"><img src="images/pic01.jpg" alt="" /></div> -->
 								<div class="video-container">
-								<video width="840" controls poster="images/RefractionThumbnail.png">
-									<source src="videos/Refraction/Refraction_trailer.mp4" type="video/mp4">
-									Your browser does not support the video tag.
-								</video>
-							</div>
-
-							<header>
-								<h2>Introduction</h2>
-							</header>
+									<video width="840" controls poster="images/RefractionThumbnail.png">
+										<source src="videos/Refraction/Refraction_trailer.mp4" type="video/mp4">
+										Your browser does not support the video tag.
+									</video>
+								</div>
+								
 							<p>Refraction is a 2D light-based puzzle game with main mechanics including a flashlight revolving around the player and manipulating mirrors to eventually bring light back to the world. This project was made using a custom C++ engine heavily focused on manipulating individual pixels on a user's screen. This meant our graphics programmer used CPU rendering, which was intertwined and followed by GPU rendering to lighten the burden on the CPU. This limitation led to creative solutions from our engineers and helped create a unique atmosphere for our project going forward.</p>
 						</section>
-
-						<!-- Role Specific Details -->
+							
+							<!-- Role Specific Details -->
+						<section class="post">
+							<header>
+								<h2>Gameplay Programming</h2>
+							</header>
+							<p>Since I had designed the entity framework, I had a good understanding of how to create their own specific behaviors. This was done by creating behavior components specific to them as a way to do it without a way to incorporate scripting in our engine, so their unique behavior is inherited from the base behavior class. The features I implemented are behaviors for interacting with mirrors to move them along an array of points, doors for triggering level switches, and parts of the player and collision between some types of entities.</p>
+						</section>	
 						<section class="post">
 							<header>
 								<h2>Technical Lead</h2>
@@ -311,12 +314,6 @@
 							</div>
 							<!-- slideshow end -->
 						</section>
-						<section class="post">
-							<header>
-								<h2>Gameplay Programming</h2>
-							</header>
-							<p>Since I had designed the entity framework, I had a good understanding of how to create their own specific behaviors. This was done by creating behavior components specific to them as a way to do it without a way to incorporate scripting in our engine, so their unique behavior is inherited from the base behavior class. The features I implemented are behaviors for interacting with mirrors to move them along an array of points, doors for triggering level switches, and parts of the player and collision between some types of entities.</p>
-						</section>	
 					</div>
 
 				<!-- Footer -->
