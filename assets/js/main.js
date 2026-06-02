@@ -4,6 +4,14 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+// only will work for one audtio element at a time
+// Select the audio element by its ID
+const audio = document.getElementById("trailer");
+
+// Set the starting volume to 50%
+if (audio) {
+	audio.volume = 0.35;
+}
 (function($) {
 
 	var	$window = $(window),
